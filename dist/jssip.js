@@ -1,7 +1,7 @@
 /*
  * JsSIP v3.6.3
  * the Javascript SIP library
- * Copyright: 2012-2020 José Luis Millán <jmillan@aliax.net> (https://github.com/jmillan)
+ * Copyright: 2012-2021 José Luis Millán <jmillan@aliax.net> (https://github.com/jmillan)
  * Homepage: https://jssip.net
  * License: MIT
  */
@@ -17234,6 +17234,13 @@ module.exports = /*#__PURE__*/function (_EventEmitter) {
         requestParams.from_uri = new URI('sip', 'anonymous', 'anonymous.invalid');
         extraHeaders.push("P-Preferred-Identity: ".concat(this._ua.configuration.uri.toString()));
         extraHeaders.push('Privacy: id');
+      } else if (options.fromUserName) {
+        requestParams.from_uri = new URI('sip', options.fromUserName, this._ua.configuration.uri.host);
+        extraHeaders.push("P-Preferred-Identity: ".concat(this._ua.configuration.uri.toString()));
+      }
+
+      if (options.fromDisplayName) {
+        requestParams.from_display_name = options.fromDisplayName;
       }
 
       extraHeaders.push("Contact: ".concat(this._contact));
@@ -17538,9 +17545,13 @@ module.exports = /*#__PURE__*/function (_EventEmitter) {
         _this3._localMediaStream = stream;
 
         if (stream) {
-          stream.getTracks().forEach(function (track) {
-            _this3._connection.addTrack(track, stream);
-          });
+          if (_this3._connection.addTrack) {
+            stream.getTracks().forEach(function (track) {
+              _this3._connection.addTrack(track, stream);
+            });
+          } else {
+            _this3._connection.addStream(stream);
+          }
         }
       }) // Set remote description.
       .then(function () {
@@ -19213,9 +19224,13 @@ module.exports = /*#__PURE__*/function (_EventEmitter) {
         _this21._localMediaStream = stream;
 
         if (stream) {
-          stream.getTracks().forEach(function (track) {
-            _this21._connection.addTrack(track, stream);
-          });
+          if (_this21._connection.addTrack) {
+            stream.getTracks().forEach(function (track) {
+              _this21._connection.addTrack(track, stream);
+            });
+          } else {
+            _this21._connection.addStream(stream);
+          }
         } // TODO: should this be triggered here?
 
 
@@ -26201,7 +26216,7 @@ function functionBindPolyfill(context) {
 }
 
 },{}],30:[function(require,module,exports){
-(function (process){
+(function (process){(function (){
 /* eslint-env browser */
 
 /**
@@ -26472,7 +26487,7 @@ formatters.j = function (v) {
 	}
 };
 
-}).call(this,require('_process'))
+}).call(this)}).call(this,require('_process'))
 },{"./common":31,"_process":33}],31:[function(require,module,exports){
 
 /**
