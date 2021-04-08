@@ -4,6 +4,16 @@
 [![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/versatica/JsSIP.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/versatica/JsSIP/context:javascript)
 [![Total Alerts](https://img.shields.io/lgtm/alerts/g/versatica/JsSIP.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/versatica/JsSIP/alerts)
 
+## React-Native jsSIP fork
+
+* Handles the obsolete WebRTC `MediaStream.addStream function` that is still used within React Natve WebRTC Plugin
+
+Compatible with:  
+
+* "react-native-webrtc": "^1.84.0"  
+* "react": "16.13.1"  
+
+
 ## Overview
 
 * Runs in the browser and Node.js.
