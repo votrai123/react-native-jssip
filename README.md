@@ -2,10 +2,11 @@
 
 * Handles the obsolete WebRTC `MediaStream.addStream function` that is still used within React Native WebRTC Plugin
 
-Compatible with:  
+Confirmed Compatible with minimum versions:  
 
+* react: `^16.13.1`  
+* react-native: `^0.63.3`
 * react-native-webrtc: `^1.84.0`  
-* react: `16.13.1`  
 
 
 ## Overview
