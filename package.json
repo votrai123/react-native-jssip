@@ -1,16 +1,17 @@
 {
-  "name": "jssip",
-  "title": "JsSIP",
-  "description": "the Javascript SIP library",
+  "name": "react-native-jssip",
+  "title": "React Native JsSIP",
+  "description": "React Native fork of the Javascript SIP library",
   "version": "3.7.4",
-  "homepage": "https://jssip.net",
-  "author": "José Luis Millán <jmillan@aliax.net> (https://github.com/jmillan)",
+  "author": "Radu Vulpescu <radu.vulpescu@gmail.com> (https://github.com/rvulpescu)",
   "contributors": [
-    "Iñaki Baz Castillo <ibc@aliax.net> (https://github.com/ibc)"
+    "Iñaki Baz Castillo <ibc@aliax.net> (https://github.com/ibc)",
+    "José Luis Millán <jmillan@aliax.net> (https://github.com/jmillan)"
   ],
   "types": "lib/JsSIP.d.ts",
-  "main": "lib/JsSIP.js",
+  "main": "lib-es5/JsSIP.js",
   "keywords": [
+    "react-native",
     "sip",
     "websocket",
     "webrtc",
@@ -21,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/versatica/JsSIP.git"
+    "url": "git+https://github.com/versatica/JsSIP.git"
   },
   "bugs": {
     "url": "https://github.com/versatica/JsSIP/issues"
@@ -57,5 +58,10 @@
     "lint": "gulp lint",
     "test": "gulp test",
     "prepublishOnly": "gulp babel"
+  },
+  "homepage": "https://github.com/versatica/JsSIP#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
